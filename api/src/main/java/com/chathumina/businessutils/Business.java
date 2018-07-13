@@ -12,15 +12,16 @@ public class Business {
         int[] data = dataService.retrieveAllData();
         int greatest = 0;
 
+        if(data.length==0){
+            throw new FooException("No data set");
+        }
+
         for (int value : data) {
             if (value > greatest) {
                 greatest = value;
             }
         }
 
-        if(greatest == 0){
-            throw new FooException();
-        }
         return greatest;
     }
 }

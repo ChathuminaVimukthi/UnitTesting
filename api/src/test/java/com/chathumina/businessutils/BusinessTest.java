@@ -31,9 +31,9 @@ public class BusinessTest {
         assertEquals(15, business.findTheGreatestFromAllData());
     }
 
-    @Test
+    @Test(expected = FooException.class)
     public void testFindTheGreatestFromAllData_NoValues() throws FooException {
         when(dataService.retrieveAllData()).thenReturn(new int[] {});
-        assertEquals(0, business.findTheGreatestFromAllData());
+        assertEquals(FooException.class, business.findTheGreatestFromAllData());
     }
 }
